@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+  # this app is stateless app also not using db server, not stateful so can't store data
+    volumes:
+      - /home/notroot/devops-practices/docker/node-todo-cicd:/backup-data
+    restart: always
